@@ -256,35 +256,8 @@
     text-overflow:ellipsis;
   }
 
-  /* ---------- QR badge ---------- */
-  #qrBadge{
-    position:absolute;
-    bottom:20px; right:20px;
-    z-index:8;
-    background:var(--cream);
-    padding:8px;
-    border-radius:14px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.4);
-    opacity:0;
-    transform:translateY(10px);
-    transition:opacity 1s ease 1.8s, transform 1s ease 1.8s;
-    text-align:center;
-  }
-  #stage.unlocked #qrBadge{ opacity:1; transform:translateY(0); }
-  #qrBadge #qrcode{ width:78px; height:78px; }
-  #qrBadge span{
-    display:block;
-    font-size:9px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--indigo);
-    margin-top:4px;
-    font-weight:600;
-  }
-
   @media (max-width:520px){
     .hand{ width:48%; height:40%; top:14%; }
-    #qrBadge{ transform:scale(0.85); transform-origin:bottom right; }
   }
 </style>
 </head>
@@ -315,18 +288,12 @@
     <button id="playToggle">▶</button>
     <div id="trackLabel">Happy Birthday</div>
   </div>
-
-  <div id="qrBadge">
-    <div id="qrcode"></div>
-    <span>scan me</span>
-  </div>
 </div>
 
 <audio id="audio" loop preload="auto">
-  <source src="Happy Birthday-sweet monkey.mp3" type="audio/mpeg">
+  <source src="Happy Birthday_ Sweet monkey.mp3" type="audio/mpeg">
 </audio>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
   const ACCEPTED = ["23/5/2026","23/05/2026","23-5-2026","23-05-2026","2352026"];
 
@@ -373,17 +340,6 @@
       playToggle.textContent = '▶';
     }
   });
-
-  // QR code -> points to this page's own URL so it can be scanned to open it
-  try{
-    new QRCode(document.getElementById('qrcode'), {
-      text: window.location.href,
-      width: 78,
-      height: 78,
-      colorDark: "#241a52",
-      colorLight: "#fff9ec"
-    });
-  }catch(e){}
 </script>
 
 </body>
